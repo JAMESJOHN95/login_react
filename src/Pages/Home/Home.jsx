@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../Componants/Header'
 import './Home.css'
 import watchimg1 from '../Home/Rectangle_3.png'
@@ -6,6 +6,8 @@ import watchimg2 from '../Home/watch2.png'
 import watchimg3 from '../Home/watch4.png'
 
 function Home() {
+ 
+
   return (
     <div className='mainrow ps-4 pe-4  '>
       <Header afterlogin />
@@ -43,10 +45,10 @@ function Home() {
               <div className='text-center'><button className='buybutton'>Buy Now</button></div>
             </div>
           </div>
-<div className='mt-3 ms-3'><button className='buybutton'>
-  Explore</button></div>
+          <div className='mt-3 ms-3'><button className='buybutton'>
+            Explore</button></div>
         </div>
-<div className="col-lg-1"></div>
+        <div className="col-lg-1"></div>
 
         <div className="col-lg-4 p-3">
           <div style={{ background: "#0d4738b5" }} className='d-flex justify-content-between  border p-2 rounded'>
@@ -62,13 +64,13 @@ function Home() {
           <div className='mt-3 p-3 text-center'>
 
             <img className='watchimg' width="100%" src={watchimg1} alt="" />
-            
+
           </div >
           <div className='d-flex justify-content-around mt-4'>
             <div><i class="fa-solid fa-circle text-success "></i></div>
-          <div><i class="fa-solid fa-circle text-teritiary"></i></div>
-         <div> <i class="fa-solid fa-circle"></i></div>
-         </div>
+            <div><i class="fa-solid fa-circle text-teritiary"></i></div>
+            <div> <i class="fa-solid fa-circle"></i></div>
+          </div>
         </div>
       </div>
     </div>

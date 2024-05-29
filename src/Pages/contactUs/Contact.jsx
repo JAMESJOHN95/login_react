@@ -24,7 +24,7 @@ function Contact() {
                     <input className='form-control w-100' type="text" /><br />
                     <label htmlFor="">Your Message</label> <br />
                     <textarea className='form-control w-100' name="" id=""></textarea>
-                    <button style={{border:"none" , background:"black",color:"white", borderRadius:"5px"}} className='mt-4 w-100'>Submit</button>
+                    <button style={{ border: "none", background: "black", color: "white", borderRadius: "5px" }} className='mt-4 w-100'>Submit</button>
                 </div>
                 <div className="col-lg-6 p-5">
                     <img height="380px" width="100%" src={contactphoto} alt="" />

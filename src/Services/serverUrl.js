@@ -1,1 +1,1 @@
-export const serverUrl = "https://login-react-server-1.onrender.com"
+export const serverUrl = "http://localhost:3000"

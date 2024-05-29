@@ -7,52 +7,55 @@ import { registerApi } from '../../Services/AllApi';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import facebookimg from './facebook.webp'
+import appleimg from './apple.webp'
+import googleimg from './google.jpg'
 
 
 
 function Register() {
   const navigate = useNavigate()
-  const [registerUsers, setRegisterUsers] = useState({ Username: "", Email: "", Password: "",conformpaa:"" })
+  const [registerUsers, setRegisterUsers] = useState({ Username: "", Email: "", Password: "", conformpaa: "" })
 
   const handleRegister = async (e) => {
     e.preventDefault()
     if (registerUsers.Username && registerUsers.Email && registerUsers.Password && registerUsers.conformpaa) {
-      if(registerUsers.Password === registerUsers.conformpaa){
+      if (registerUsers.Password === registerUsers.conformpaa) {
         try {
           const result = await registerApi(registerUsers)
           console.log(result);
           if (result.status == 200) {
-              toast.success("Registration Success")
-              setTimeout(() => {
-                  setRegisterUsers({ Username: "", Email: "", Password: "",conformpaa:""  })
+            toast.success("Registration Success")
+            setTimeout(() => {
+              setRegisterUsers({ Username: "", Email: "", Password: "", conformpaa: "" })
               navigate('/login')
-              }, 1500);
-              
+            }, 1500);
+
           }
           else {
-              toast.error(result.response.data)
-              setTimeout(() => {
-                  setRegisterUsers({ Username: "", Email: "", Password: "",conformpaa:""  })
-              }, 1000)
+            toast.error(result.response.data)
+            setTimeout(() => {
+              setRegisterUsers({ Username: "", Email: "", Password: "", conformpaa: "" })
+            }, 1000)
           }
+        }
+        catch (err) {
+        }
       }
-      catch (err) {
-      }
-      }
-      else{
+      else {
         toast.error("Password Dont Match")
       }
-        
+
     }
     else {
-        toast.error("Please Fill The Form Compleately")
+      toast.error("Please Fill The Form Compleately")
     }
-}
+  }
 
   return (
-    
+
     <div style={{ overflowY: "hidden" }} className='mt-1 container w-100  '>
-      <Header/>
+      <Header />
       <div className="row ">
         <div className="col-lg-1"></div>
         <div className="col-lg-4 p-5 ">
@@ -67,9 +70,10 @@ function Register() {
           <hr />
           <div className='text-center'><p >Or Continue With</p></div>
           <div className='w-100  text-center d-flex justify-content-around'>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-apple"></i>
-            <i class="fa-brands fa-google"></i>
+          <div><img width="30px" src={facebookimg} alt="" /></div>
+            <div><img width="30px" src={appleimg} alt="" /></div>
+            <div><img width="30px" src={googleimg} alt="" /></div>
+
           </div>
         </div>
         <div className="col-lg-1"></div>
@@ -78,18 +82,18 @@ function Register() {
           <h6>Lorem Ipsum is Simple</h6>
           <div className='d-flex'>
             <div className='mt-4  ' >
-              <p style={{fontSize:'15px'}}>If you are already have an account <br />You can <Link to = {'/login'}>Login here!</Link></p>
-  
+              <p style={{ fontSize: '15px' }}>If you are already have an account <br />You can <Link to={'/login'}>Login here!</Link></p>
+
             </div>
             <div  >
               <img className='registerimg' src={sallyimg} alt="" /></div >
           </div>
-          </div>
+        </div>
       </div>
       < ToastContainer position='top-center' theme='colored' autoClose={'1500'} />
 
     </div>
-    
+
   )
 }
 

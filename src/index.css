@@ -3,3 +3,15 @@
     font-weight: 800;
     color:greenyellow;
 }
+
+.navbar{
+    position:fixed;
+    top: 0;
+    overflow: hidden;
+}
+
+.profileimg{
+    height: 18px;
+    width: 18px;
+    border-radius: 5px;
+}

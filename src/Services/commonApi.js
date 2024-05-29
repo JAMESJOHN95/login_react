@@ -9,9 +9,9 @@ export const commonapi = async (httpmethod, url, reqbody, reqheader) => {
             "Content-Type": "application/json"
         }
     }
-    return await axios(configreq).then((res)=>{
+    return await axios(configreq).then((res) => {
         return res
-    }).catch((err)=>{
+    }).catch((err) => {
         return err
     })
 }
