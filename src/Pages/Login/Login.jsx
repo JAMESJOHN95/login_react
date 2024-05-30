@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import sallyimg from '../Register/Saly-14.png'
 import Header from '../../Componants/Header'
 import { getgoogleloginApi, loginApi } from '../../Services/AllApi'
@@ -10,12 +10,12 @@ import appleimg from './apple.webp'
 import googleimg from './google.jpg'
 import { GoogleLogin, googleLogout, useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
-
-
-
-
+import { tokenAuthenticationContext } from '../../Contexts/TokenAuthentication'
 
 function Login() {
+
+  const{isAuthentication,setIsAuthentication} = useContext(tokenAuthenticationContext)
+  // console.log(isauthentication);
 
   const navigate = useNavigate()
   const [registerUsers, setRegisterUsers] = useState({ Username: "", Email: "", Password: "" })
@@ -28,8 +28,11 @@ function Login() {
         const result = await loginApi(registerUsers)
         // console.log(result);
         if (result.status == 200) {
+          console.log(result.data.existinguser);
           sessionStorage.setItem("Existinguser", JSON.stringify(result.data.existinguser))
           sessionStorage.setItem("token", result.data.token)
+          setIsAuthentication(true)
+
           toast.success(`Welcome ${result.data.existinguser.Username}`)
           setTimeout(() => {
             setRegisterUsers({ Email: "", Password: "" })

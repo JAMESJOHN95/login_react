@@ -17,6 +17,8 @@ function Register() {
   const navigate = useNavigate()
   const [registerUsers, setRegisterUsers] = useState({ Username: "", Email: "", Password: "", conformpaa: "" })
 
+  console.log("12345676543")
+
   const handleRegister = async (e) => {
     e.preventDefault()
     if (registerUsers.Username && registerUsers.Email && registerUsers.Password && registerUsers.conformpaa) {
